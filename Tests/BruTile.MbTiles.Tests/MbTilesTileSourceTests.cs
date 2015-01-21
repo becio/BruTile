@@ -9,6 +9,7 @@ namespace BruTile.MbTiles.Tests
     public class MbTilesTileSourceTests
     {
         [Test]
+        [Ignore("This test does not run properly from Resharper but does van NUnit Gui. This is probably related to x64 vs x86")]
         public void FetchTiles()
         {
             // arrange
@@ -19,7 +20,7 @@ namespace BruTile.MbTiles.Tests
             var tileInfos = tileSource.Schema.GetTileInfos(extent, "1").ToList();
             
             // act
-            var data = tileSource.Provider.GetTile(tileInfos.First());
+            var data = tileSource.GetTile(tileInfos.First());
 
             // assert
             Assert.True(data.Length > 0);
